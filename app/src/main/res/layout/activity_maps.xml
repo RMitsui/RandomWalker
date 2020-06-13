@@ -19,7 +19,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="55dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
         android:padding="8dp"
@@ -29,11 +29,53 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="5dp"
+        android:background="#FFFFFF"
         android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tv_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="#FFFFFF"
+        android:text="距離:"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_distance"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="#FFFFFF"
+        android:text="時間:"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/bt_gotomap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="100dp"
+        android:text="Google Mapで開く"
+        android:visibility="invisible" />
+
+    <EditText
+        android:id="@+id/iv_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:visibility="invisible" />
 
 </RelativeLayout>
