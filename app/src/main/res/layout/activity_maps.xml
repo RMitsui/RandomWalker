@@ -16,11 +16,10 @@
         android:id="@+id/bt_makeroute"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginEnd="80dp"
         android:layout_marginBottom="5dp"
         android:padding="8dp"
         android:text="ルート生成" />
@@ -59,13 +58,16 @@
         android:text="時間:"
         android:textSize="18sp" />
 
-    <Button
+    <ImageButton
         android:id="@+id/bt_gotomap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="5dp"
+        android:background="@null"
+        android:src="@drawable/common_google_signin_btn_icon_dark_normal"
         android:text="Google Mapで開く"
         android:visibility="invisible" />
 
@@ -77,5 +79,7 @@
         android:inputType="textPersonName"
         android:text="Name"
         android:visibility="invisible" />
+
+
 
 </RelativeLayout>

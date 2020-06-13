@@ -2,14 +2,18 @@ package jp.ac.titech.itpro.sdl.randomwalker
 
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View.VISIBLE
 import androidx.core.widget.doOnTextChanged
+import androidx.preference.PreferenceFragmentCompat
 import com.eclipsesource.json.Json
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
@@ -52,6 +56,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private var string: String = ""
     private var peaceful = true
     private var encodedpl :String = ""
+    private var vdir = 0.0
+    private var hdir = 0.0
     companion object{
         const val RANDOMPOINTS = "RandomWalker.RandomPoints"
     }
@@ -109,8 +115,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             rp[0] = NowLat
             rp[1] = NowLng
             for(i in 1..8){
-                val randomDoubleLat = ThreadLocalRandom.current().nextDouble(0.0,1.0) * LatOne * Times
-                val randomDoubleLng = ThreadLocalRandom.current().nextDouble(0.0,1.0) * LngOne * Times
+                val randomDoubleLat = (ThreadLocalRandom.current().nextDouble(0.0,1.0)-vdir) * LatOne * Times
+                val randomDoubleLng = (ThreadLocalRandom.current().nextDouble(0.0,1.0)-hdir) * LngOne * Times
                 var rLat = NowLat + randomDoubleLat
                 var rLng = NowLng + randomDoubleLng
                 rLat = round(rLat*10000000)/10000000
@@ -177,7 +183,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 Log.d(tag, "encodedpl:$encodedpl")
                 var overview = PolyUtil.decode(encodedpl)
                 writepl?.remove()
-                writepl = mMap.addPolyline(PolylineOptions().addAll(overview))
+                writepl = mMap.addPolyline(PolylineOptions().addAll(overview).color(Color.RED))
                 //Log.d(tag,writepl.toString())
                 bt_gotomap.visibility = VISIBLE
 
@@ -187,6 +193,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             }
         })
+
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -222,6 +229,19 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         val zoomValue = 15.0f
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowin, zoomValue))
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu);
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val optintent = Intent(this, SettingsActivity::class.java)
+        when(item.itemId){
+            R.id.addButton -> startActivity(optintent)
+        }
+        return true
     }
 
     fun gmapapicall() = GlobalScope.launch(Dispatchers.Main) {
