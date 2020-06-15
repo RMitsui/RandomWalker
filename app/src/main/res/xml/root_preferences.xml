@@ -1,22 +1,32 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory app:title="@string/messages_header">
+    <PreferenceCategory app:title="ルート生成パラメータ">
 
         <EditTextPreference
-            app:key="signature"
-            app:title="@string/signature_title"
-            app:useSimpleSummaryProvider="true" />
+            app:defaultValue="60"
+            app:key="times"
+            app:title="散歩時間(分)"
+            app:useSimpleSummaryProvider="true"
+            app:summary="指定した時間ぐらいのコースを生成します。"
+            />
 
         <ListPreference
-            app:defaultValue="reply"
-            app:entries="@array/reply_entries"
-            app:entryValues="@array/reply_values"
-            app:key="reply"
-            app:title="@string/reply_title"
+            app:defaultValue="X"
+            app:entries="@array/direction_entries"
+            app:entryValues="@array/direction_values"
+            app:key="directions"
+            app:title="方角"
             app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            app:key="chaos"
+            app:title="カオスな経路を生成する" />
 
     </PreferenceCategory>
 
+    <!--
     <PreferenceCategory app:title="@string/sync_header">
 
         <SwitchPreferenceCompat
@@ -31,5 +41,6 @@
             app:title="@string/attachment_title" />
 
     </PreferenceCategory>
+    -->
 
 </PreferenceScreen>

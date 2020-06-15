@@ -9,4 +9,30 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+
+    <string-array name="direction_entries">
+        <item>なし</item>
+        <item>東</item>
+        <item>南東</item>
+        <item>南</item>
+        <item>南西</item>
+        <item>西</item>
+        <item>北西</item>
+        <item>北</item>
+        <item>北東</item>
+        <item>ランダム</item>
+    </string-array>
+
+    <string-array name="direction_values">
+        <item>X</item>
+        <item>E</item>
+        <item>SE</item>
+        <item>S</item>
+        <item>SW</item>
+        <item>W</item>
+        <item>NW</item>
+        <item>N</item>
+        <item>NE</item>
+        <item>R</item>
+    </string-array>
 </resources>

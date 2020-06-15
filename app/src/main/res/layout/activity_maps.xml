@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -12,6 +13,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edgebg"
+        android:text="           "
+        android:textSize="48sp" />
+
     <Button
         android:id="@+id/bt_makeroute"
         android:layout_width="wrap_content"
@@ -19,8 +32,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="5dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="135dp"
+        android:layout_marginBottom="12dp"
         android:padding="8dp"
         android:text="ルート生成" />
 
@@ -34,14 +47,16 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="5dp"
         android:background="#FFFFFF"
-        android:text="TextView" />
+        android:text="TextView"
+        android:visibility="invisible" />
 
     <TextView
         android:id="@+id/tv_distance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:layout_marginStart="10dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="65dp"
         android:layout_marginTop="10dp"
         android:background="#FFFFFF"
         android:text="距離:"
@@ -52,24 +67,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_distance"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="5dp"
         android:background="#FFFFFF"
         android:text="時間:"
         android:textSize="18sp" />
-
-    <ImageButton
-        android:id="@+id/bt_gotomap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="80dp"
-        android:layout_marginBottom="5dp"
-        android:background="@null"
-        android:src="@drawable/common_google_signin_btn_icon_dark_normal"
-        android:text="Google Mapで開く"
-        android:visibility="invisible" />
 
     <EditText
         android:id="@+id/iv_data"
@@ -80,6 +82,13 @@
         android:text="Name"
         android:visibility="invisible" />
 
+    <TextView
+        android:id="@+id/gurl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="url"
+        android:textSize="8sp"
+        tools:visibility="invisible" />
 
 
 </RelativeLayout>
